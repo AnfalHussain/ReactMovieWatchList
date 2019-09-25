@@ -1,0 +1,1 @@
+export { addMovie, deleteMovie, watchMovie, unwatchMovie } from './movies';
