@@ -48,15 +48,31 @@ class WatchedMovies extends Component {
         }
     };
 
+    selectResultView = () => {
+        const moviesRows = this.state.filteredMovies.map(movie => (
+            <WatchedMovieCard movie={movie} key={movie.title} />
+        ));
+        if (this.state.filteredMovies.length === 0) {
+            return (
+                <h5> No results found!! </h5>
+
+            );
+
+        } else {
+            return (
+                <tbody>{moviesRows}</tbody>
+
+            );
+        }
+    };
+
 
     render() {
 
 
         //filter the  watched movies first 
         // const watchedMoviesArray = this.props.movies.filter(movie => movie.done === true)
-        const moviesRows = this.state.filteredMovies.map(movie => (
-            <WatchedMovieCard movie={movie} key={movie.title} />
-        ));
+
 
         return (
             <>
@@ -67,8 +83,7 @@ class WatchedMovies extends Component {
 
                 <SearchBar changeHandler={this.filterMovies} ></SearchBar>
                 <table className="table">
-
-                    <tbody>{moviesRows}</tbody>
+                    {this.selectResultView()}
                 </table>
             </>
         );

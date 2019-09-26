@@ -49,14 +49,27 @@ class WatchList extends Component {
             );
         }
     };
-    render() {
 
-
-        //filter the  watched movies first 
-        // const watchedMoviesArray = this.props.movies.filter(movie => movie.done === true)
+    selectResultView = () => {
         const moviesRows = this.state.filteredMovies.map(movie => (
             <MovieCard movie={movie} key={movie.title} />
         ));
+        if (this.state.filteredMovies.length === 0) {
+            return (
+                <h5> No results found!! </h5>
+
+            );
+
+        } else {
+            return (
+                <tbody>{moviesRows}</tbody>
+
+            );
+        }
+    };
+    render() {
+
+
 
 
         return (
@@ -69,7 +82,7 @@ class WatchList extends Component {
                 <SearchBar changeHandler={this.filterMovies} ></SearchBar>
                 <table className="table">
 
-                    <tbody>{moviesRows}</tbody>
+                    {this.selectResultView()}
                 </table>
             </>
         );
