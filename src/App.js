@@ -19,9 +19,10 @@ class App extends Component {
 
           <AddMovie />
         </header>
+        <h2 className="bg-danger text-light"> Watchlist Movies </h2>
 
         <WatchList />
-        <h2> Watched Movies </h2>
+        <h2 className="bg-danger text-light"> Watched Movies </h2>
         <WatchedMovies />
 
       </div>

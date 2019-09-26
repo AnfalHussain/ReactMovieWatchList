@@ -28,8 +28,8 @@ export default (state = initialState, action) => {
             const movieToSetToWatched = action.payload;
             return {
                 ...state,
-                movies: state.movies.map(movie => movie !== movieToSetToWatched ? movie : { ...movie, done: true }
-                )
+                movies: [...state.movies.map(movie => movie !== movieToSetToWatched ? movie : { ...movie, done: true })]
+
             }
 
 
@@ -37,8 +37,8 @@ export default (state = initialState, action) => {
             const movieToSetToUnwatched = action.payload;
             return {
                 ...state,
-                movies: state.movies.map(movie => movie !== movieToSetToUnwatched ? movie : { ...movie, done: false }
-                )
+                movies: [...state.movies.map(movie => movie !== movieToSetToUnwatched ? movie : { ...movie, done: false }
+                )]
             }
 
         case DELETE_MOVIE:
